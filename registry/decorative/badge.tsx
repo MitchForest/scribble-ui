@@ -1,5 +1,5 @@
 /**
- * ScribbleBadge - Hand-drawn ellipse badge around content
+ * ScribbleCircleBadge - Hand-drawn ellipse badge around content
  */
 
 import { useEffect, useRef, useState } from "react"
@@ -7,7 +7,7 @@ import rough from "roughjs"
 import type { ReactNode } from "react";
 import { cn } from "../lib/utils"
 
-export interface ScribbleBadgeProps {
+export interface ScribbleCircleBadgeProps {
   children: ReactNode
   /** Stroke color */
   color?: "accent" | "muted" | "success" | string
@@ -40,7 +40,7 @@ function getColor(color: string): string {
   return color
 }
 
-export function ScribbleBadge({
+export function ScribbleCircleBadge({
   children,
   color = "accent",
   roughness = 1.5,
@@ -48,7 +48,7 @@ export function ScribbleBadge({
   seed = 123,
   className,
   style,
-}: ScribbleBadgeProps) {
+}: ScribbleCircleBadgeProps) {
   const svgRef = useRef<SVGSVGElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const [dims, setDims] = useState({ width: 0, height: 0 })
