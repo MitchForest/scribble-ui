@@ -7,7 +7,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import rough from "roughjs"
-import { cn } from "./lib/utils"
+import { cn } from "../lib/utils"
 
 export interface ScribbleCloseProps {
   /** Size in pixels */

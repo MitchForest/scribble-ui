@@ -8,7 +8,7 @@
 
 import { useEffect, useRef } from "react"
 import rough from "roughjs"
-import { cn } from "./lib/utils"
+import { cn } from "../lib/utils"
 
 export type TapePosition = "top-left" | "top-right" | "bottom-left" | "bottom-right" | "top-center" | "bottom-center"
 

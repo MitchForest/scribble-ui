@@ -10,7 +10,7 @@ import { RoughNotation } from "react-rough-notation"
 import {  useEffect, useRef, useState } from "react"
 import rough from "roughjs"
 import type {ReactNode} from "react";
-import { cn } from "./lib/utils"
+import { cn } from "../lib/utils"
 
 export interface ScribbleUnderlineProps {
   children: ReactNode

@@ -4,7 +4,7 @@
 
 import { useEffect, useRef } from "react"
 import rough from "roughjs"
-import { cn } from "./lib/utils"
+import { cn } from "../lib/utils"
 
 export interface ScribblePlusMinusProps {
   /** Whether to show minus (open) or plus (closed) */
