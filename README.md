@@ -24,7 +24,7 @@ Add the registry to your `components.json`:
 {
   "registries": {
     "scribble-ui": {
-      "url": "https://mitchforest.com/api/r/scribble-ui/registry.json"
+      "url": "https://mitchforest.com/r/scribble-ui/registry.json"
     }
   }
 }
