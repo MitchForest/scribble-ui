@@ -9,8 +9,19 @@
       "title": "Scribble UI Core Utilities",
       "description": "Core hooks and utilities for Scribble UI components. Required dependency.",
       "files": [
+        { "path": "registry/lib/index.ts", "type": "registry:lib" },
         { "path": "registry/lib/utils.ts", "type": "registry:lib" },
         { "path": "registry/lib/use-scribble-canvas.ts", "type": "registry:lib" }
+      ]
+    },
+    {
+      "name": "index",
+      "type": "registry:component",
+      "title": "Scribble UI Barrel Export",
+      "description": "Root barrel export for all Scribble UI components. Install this to use `import { ... } from 'scribble-ui'`.",
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/index.ts", "type": "registry:component" }
       ]
     },
     {
