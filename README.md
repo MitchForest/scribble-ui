@@ -23,9 +23,7 @@ Add the registry to your `components.json`:
 ```json
 {
   "registries": {
-    "scribble-ui": {
-      "url": "https://mitchforest.com/r/scribble-ui/registry.json"
-    }
+    "@scribble-ui": "https://mitchforest.com/r/scribble-ui/{name}.json"
   }
 }
 ```
@@ -33,9 +31,9 @@ Add the registry to your `components.json`:
 Then add components:
 
 ```bash
-npx shadcn add scribble-ui/button
-npx shadcn add scribble-ui/card
-npx shadcn add scribble-ui/annotation-underline
+npx shadcn@latest add @scribble-ui/button
+npx shadcn@latest add @scribble-ui/card
+npx shadcn@latest add @scribble-ui/annotation-underline
 ```
 
 ### Required Base Install
@@ -43,8 +41,8 @@ npx shadcn add scribble-ui/annotation-underline
 Always install the lib and styles first:
 
 ```bash
-npx shadcn add scribble-ui/lib
-npx shadcn add scribble-ui/styles
+npx shadcn@latest add @scribble-ui/lib
+npx shadcn@latest add @scribble-ui/styles
 ```
 
 ## Components
