@@ -1,0 +1,554 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "scribble-ui",
+  "homepage": "https://github.com/scribble-app/scribble-ui",
+  "items": [
+    {
+      "name": "lib",
+      "type": "registry:lib",
+      "title": "Scribble UI Core Utilities",
+      "description": "Core hooks and utilities for Scribble UI components. Required dependency.",
+      "files": [
+        { "path": "registry/lib/utils.ts", "type": "registry:lib" },
+        { "path": "registry/lib/use-scribble-canvas.ts", "type": "registry:lib" }
+      ]
+    },
+    {
+      "name": "styles",
+      "type": "registry:style",
+      "title": "Scribble UI CSS Variables",
+      "description": "CSS custom properties for theming Scribble UI components.",
+      "files": [
+        { "path": "registry/styles/variables.css", "type": "registry:style" }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Scribble Button",
+      "description": "Hand-drawn button with Rough.js sketchy border that wobbles on hover.",
+      "dependencies": ["roughjs", "radix-ui"],
+      "registryDependencies": ["scribble-ui/lib", "scribble-ui/annotation-underline"],
+      "files": [
+        { "path": "registry/button.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:component",
+      "title": "Scribble Card",
+      "description": "Card container with hand-drawn Rough.js border, optional tape decorations and fill patterns.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib", "scribble-ui/decorative-tape"],
+      "files": [
+        { "path": "registry/card.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Scribble Dialog",
+      "description": "Modal dialog with hand-drawn frame built on Radix Dialog.",
+      "dependencies": ["roughjs", "@radix-ui/react-dialog"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/dialog.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:component",
+      "title": "Scribble Alert Dialog",
+      "description": "Confirmation dialog with hand-drawn styling built on Radix Alert Dialog.",
+      "dependencies": ["roughjs", "@radix-ui/react-alert-dialog"],
+      "registryDependencies": ["scribble-ui/lib", "scribble-ui/button"],
+      "files": [
+        { "path": "registry/alert-dialog.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:component",
+      "title": "Scribble Input",
+      "description": "Text input with sketchy underline styling.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/input.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:component",
+      "title": "Scribble Textarea",
+      "description": "Multi-line text input with sketchy border.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/textarea.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Scribble Checkbox",
+      "description": "Hand-drawn checkbox with animated check mark.",
+      "dependencies": ["roughjs", "@radix-ui/react-checkbox"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/checkbox.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Scribble Select",
+      "description": "Dropdown select with rough styling built on Radix Select.",
+      "dependencies": ["roughjs", "@radix-ui/react-select"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/select.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Scribble Badge",
+      "description": "Simple badge component with variant styles.",
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/badge.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:component",
+      "title": "Scribble Label",
+      "description": "Form label with handwriting font styling.",
+      "dependencies": ["@radix-ui/react-label"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/label.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:component",
+      "title": "Scribble Toast",
+      "description": "Toast notifications with hand-drawn styling. Uses Sonner.",
+      "dependencies": ["sonner"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/toast.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "title": "Scribble Tabs",
+      "description": "Tabbed interface with sketchy underline indicators.",
+      "dependencies": ["@radix-ui/react-tabs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/tabs.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Scribble Accordion",
+      "description": "Collapsible sections built on Radix Accordion.",
+      "dependencies": ["@radix-ui/react-accordion"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/accordion.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Scribble Tooltip",
+      "description": "Tooltip with sketchy background built on Radix Tooltip.",
+      "dependencies": ["@radix-ui/react-tooltip"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/tooltip.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:component",
+      "title": "Scribble Sidebar",
+      "description": "Navigation sidebar with hand-drawn styling.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib", "scribble-ui/button"],
+      "files": [
+        { "path": "registry/sidebar.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:component",
+      "title": "Scribble Table",
+      "description": "Data table with rough borders.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/table.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:component",
+      "title": "Scribble Progress",
+      "description": "Progress bar with hand-drawn fill.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/progress.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Scribble Skeleton",
+      "description": "Loading skeleton with sketchy shimmer effect.",
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/skeleton.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:component",
+      "title": "Scribble Avatar",
+      "description": "Avatar with hand-drawn border.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/avatar.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "avatar-picker",
+      "type": "registry:component",
+      "title": "Scribble Avatar Picker",
+      "description": "Avatar selection grid with Notionist-style avatars.",
+      "registryDependencies": ["scribble-ui/lib", "scribble-ui/avatar"],
+      "files": [
+        { "path": "registry/avatar-picker.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:component",
+      "title": "Scribble Input OTP",
+      "description": "One-time password input with sketchy styling.",
+      "dependencies": ["input-otp"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/input-otp.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:component",
+      "title": "Scribble Toggle",
+      "description": "Toggle button with hand-drawn styling.",
+      "dependencies": ["@radix-ui/react-toggle"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/toggle.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "rating",
+      "type": "registry:component",
+      "title": "Scribble Rating",
+      "description": "Star rating component with hand-drawn stars.",
+      "registryDependencies": ["scribble-ui/lib", "scribble-ui/decorative-star"],
+      "files": [
+        { "path": "registry/rating.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "selection-card",
+      "type": "registry:component",
+      "title": "Scribble Selection Card",
+      "description": "Selectable card for option selection interfaces.",
+      "registryDependencies": ["scribble-ui/lib", "scribble-ui/card"],
+      "files": [
+        { "path": "registry/selection-card.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "link",
+      "type": "registry:component",
+      "title": "Scribble Link",
+      "description": "Link with animated underline on hover.",
+      "registryDependencies": ["scribble-ui/lib", "scribble-ui/annotation-underline"],
+      "files": [
+        { "path": "registry/link.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "page-header",
+      "type": "registry:component",
+      "title": "Scribble Page Header",
+      "description": "Page header with title and optional back navigation.",
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/page-header.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "page-footer",
+      "type": "registry:component",
+      "title": "Scribble Page Footer",
+      "description": "Page footer with hand-drawn divider.",
+      "registryDependencies": ["scribble-ui/lib", "scribble-ui/decorative-divider"],
+      "files": [
+        { "path": "registry/page-footer.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:component",
+      "title": "Scribble Chart",
+      "description": "Charts with Rough.js hand-drawn styling. Wraps Recharts.",
+      "dependencies": ["roughjs", "recharts"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/chart.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "annotation-underline",
+      "type": "registry:component",
+      "title": "Scribble Underline",
+      "description": "Animated hand-drawn underline annotation.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/annotation/underline.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "annotation-highlight",
+      "type": "registry:component",
+      "title": "Scribble Highlight",
+      "description": "Text highlight with hachure fill pattern.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/annotation/highlight.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "annotation-bracket",
+      "type": "registry:component",
+      "title": "Scribble Bracket",
+      "description": "Curly bracket annotation for emphasizing content.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/annotation/bracket.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "annotation-circle",
+      "type": "registry:component",
+      "title": "Scribble Circle",
+      "description": "Hand-drawn circle around content.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/annotation/circle.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "annotation-box",
+      "type": "registry:component",
+      "title": "Scribble Box",
+      "description": "Hand-drawn box around content.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/annotation/box.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "annotation-crossed-off",
+      "type": "registry:component",
+      "title": "Scribble Crossed Off",
+      "description": "Strikethrough annotation for crossed-off content.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/annotation/crossed-off.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "decorative-arrow",
+      "type": "registry:component",
+      "title": "Scribble Arrow",
+      "description": "Hand-drawn arrow for pointing at elements.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/decorative/arrow.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "decorative-divider",
+      "type": "registry:component",
+      "title": "Scribble Divider",
+      "description": "Sketchy horizontal divider line.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/decorative/divider.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "decorative-doodle",
+      "type": "registry:component",
+      "title": "Scribble Doodle",
+      "description": "Random decorative doodle shapes.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/decorative/doodle.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "decorative-heart",
+      "type": "registry:component",
+      "title": "Scribble Heart",
+      "description": "Hand-drawn heart shape.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/decorative/heart.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "decorative-star",
+      "type": "registry:component",
+      "title": "Scribble Star",
+      "description": "Hand-drawn star shape.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/decorative/star.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "decorative-sticky-note",
+      "type": "registry:component",
+      "title": "Scribble Sticky Note",
+      "description": "Post-it style sticky note with optional tape.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib", "scribble-ui/decorative-tape"],
+      "files": [
+        { "path": "registry/decorative/sticky-note.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "decorative-tape",
+      "type": "registry:component",
+      "title": "Scribble Tape",
+      "description": "Tape strip decoration for cards and notes.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/decorative/tape.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "decorative-badge",
+      "type": "registry:component",
+      "title": "Scribble Circle Badge",
+      "description": "Circular badge with number or icon.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/decorative/badge.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "decorative-logo",
+      "type": "registry:component",
+      "title": "Scribble Logo",
+      "description": "Scribble UI logo component.",
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/decorative/logo.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "background-notebook",
+      "type": "registry:component",
+      "title": "Scribble Notebook Background",
+      "description": "Notebook paper background with lines and margin.",
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/backgrounds/notebook.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "background-torn-edge",
+      "type": "registry:component",
+      "title": "Scribble Torn Edge",
+      "description": "Torn paper edge effect for sections.",
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/backgrounds/torn-edge.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "icon",
+      "type": "registry:component",
+      "title": "Scribble Icon",
+      "description": "Hand-drawn icon component with multiple icon options.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/icons/icon.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "icon-close",
+      "type": "registry:component",
+      "title": "Scribble Close Icon",
+      "description": "Hand-drawn X/close icon.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/icons/close.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "icon-hamburger",
+      "type": "registry:component",
+      "title": "Scribble Hamburger Icon",
+      "description": "Hand-drawn hamburger menu icon.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/icons/hamburger.tsx", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "icon-plus-minus",
+      "type": "registry:component",
+      "title": "Scribble Plus/Minus Icon",
+      "description": "Animated plus/minus toggle icon.",
+      "dependencies": ["roughjs"],
+      "registryDependencies": ["scribble-ui/lib"],
+      "files": [
+        { "path": "registry/icons/plus-minus.tsx", "type": "registry:component" }
+      ]
+    }
+  ]
+}

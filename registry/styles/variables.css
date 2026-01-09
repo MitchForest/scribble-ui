@@ -1,0 +1,118 @@
+/**
+ * Scribble UI - CSS Custom Properties
+ * 
+ * These variables control the look and feel of all Scribble UI components.
+ * Override them in your own CSS to customize the theme.
+ */
+
+:root {
+  /* ==========================================================================
+     COLORS - Stroke
+     ========================================================================== */
+  --scribble-stroke: #1a1a1a;
+  --scribble-stroke-muted: #6b7280;
+  --scribble-stroke-accent: #e07a5f;
+  --scribble-stroke-success: #059669;
+  --scribble-stroke-warning: #d97706;
+  --scribble-stroke-error: #dc2626;
+
+  /* ==========================================================================
+     COLORS - Fill
+     ========================================================================== */
+  --scribble-fill-primary: #fef3c7;
+  --scribble-fill-secondary: #dbeafe;
+  --scribble-fill-success: #d1fae5;
+  --scribble-fill-warning: #fef3c7;
+  --scribble-fill-error: #fee2e2;
+  --scribble-fill-muted: #f3f4f6;
+
+  /* ==========================================================================
+     COLORS - Background
+     ========================================================================== */
+  --scribble-bg: #fffef8;
+  --scribble-bg-card: #ffffff;
+  --scribble-bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* ==========================================================================
+     COLORS - Sticky Notes
+     ========================================================================== */
+  --scribble-sticky-yellow: #fef3c7;
+  --scribble-sticky-pink: #fce7f3;
+  --scribble-sticky-blue: #dbeafe;
+  --scribble-sticky-green: #d1fae5;
+  --scribble-sticky-orange: #ffedd5;
+
+  /* ==========================================================================
+     ROUGHNESS LEVELS
+     ========================================================================== */
+  --scribble-roughness: 1.5;
+  --scribble-roughness-hover: 2.5;
+  --scribble-roughness-subtle: 0.8;
+  --scribble-roughness-bold: 3;
+
+  /* ==========================================================================
+     STROKE WIDTH
+     ========================================================================== */
+  --scribble-stroke-width: 2;
+  --scribble-stroke-width-thin: 1.5;
+  --scribble-stroke-width-thick: 3;
+
+  /* ==========================================================================
+     ANIMATION DURATIONS
+     ========================================================================== */
+  --scribble-duration-fast: 150ms;
+  --scribble-duration-normal: 300ms;
+  --scribble-duration-slow: 500ms;
+  --scribble-duration-annotation: 800ms;
+
+  /* ==========================================================================
+     FILL PATTERNS (used by Rough.js)
+     ========================================================================== */
+  --scribble-fill-style: hachure;
+  --scribble-fill-weight: 1;
+  --scribble-hachure-angle: -41;
+  --scribble-hachure-gap: 4;
+}
+
+/* ==========================================================================
+   DARK MODE
+   ========================================================================== */
+.dark {
+  /* Stroke colors - lighter for dark backgrounds */
+  --scribble-stroke: #e5e7eb;
+  --scribble-stroke-muted: #9ca3af;
+  --scribble-stroke-accent: #f4a261;
+  --scribble-stroke-success: #34d399;
+  --scribble-stroke-warning: #fbbf24;
+  --scribble-stroke-error: #f87171;
+
+  /* Fill colors - darker, muted versions */
+  --scribble-fill-primary: #422006;
+  --scribble-fill-secondary: #1e3a5f;
+  --scribble-fill-success: #064e3b;
+  --scribble-fill-warning: #78350f;
+  --scribble-fill-error: #7f1d1d;
+  --scribble-fill-muted: #374151;
+
+  /* Backgrounds */
+  --scribble-bg: #1f2937;
+  --scribble-bg-card: #111827;
+  --scribble-bg-overlay: rgba(0, 0, 0, 0.7);
+
+  /* Sticky notes - slightly muted */
+  --scribble-sticky-yellow: #78350f;
+  --scribble-sticky-pink: #831843;
+  --scribble-sticky-blue: #1e3a8a;
+  --scribble-sticky-green: #064e3b;
+  --scribble-sticky-orange: #7c2d12;
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
