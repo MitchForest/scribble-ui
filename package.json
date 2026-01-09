@@ -1,5 +1,5 @@
 {
-  "name": "@scribble/ui",
+  "name": "scribble-ui",
   "version": "0.1.0",
   "description": "Rough.js hand-drawn component library built on Radix primitives. A sketchy, organic aesthetic for React apps.",
   "keywords": [
@@ -12,10 +12,14 @@
     "components",
     "ui"
   ],
-  "homepage": "https://github.com/scribble-app/scribble-ui",
+  "homepage": "https://mitchforest.com/projects/scribble-ui",
   "repository": {
     "type": "git",
-    "url": "https://github.com/scribble-app/scribble-ui"
+    "url": "https://github.com/MitchForest/scribble-ui"
+  },
+  "author": {
+    "name": "Mitch Forest",
+    "url": "https://mitchforest.com"
   },
   "license": "MIT",
   "type": "module",

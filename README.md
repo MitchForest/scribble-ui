@@ -2,6 +2,11 @@
 
 A **Rough.js hand-drawn component library** built on Radix primitives. Provides a sketchy, organic aesthetic for React applications.
 
+<p align="center">
+  <a href="https://mitchforest.com/projects/scribble-ui">Documentation</a> •
+  <a href="https://github.com/MitchForest/scribble-ui">GitHub</a>
+</p>
+
 ## Features
 
 - 🎨 **Hand-drawn aesthetics** - Rough.js-powered sketchy borders and fills
@@ -19,7 +24,7 @@ Add the registry to your `components.json`:
 {
   "registries": {
     "scribble-ui": {
-      "url": "https://scribble-ui.dev/registry.json"
+      "url": "https://mitchforest.com/api/r/scribble-ui/registry.json"
     }
   }
 }
@@ -91,6 +96,18 @@ Scribble UI uses CSS custom properties. Override them in your CSS:
 ```
 
 See `styles/variables.css` for all available variables.
+
+## Built With
+
+Scribble UI stands on the shoulders of giants:
+
+- [Rough.js](https://roughjs.com/) - The graphics library that powers the hand-drawn aesthetic
+- [Rough Notation](https://roughnotation.com/) - Inspiration for annotation components
+- [Radix UI](https://www.radix-ui.com/) - Accessible, unstyled primitives
+
+## Author
+
+Created by [Mitch Forest](https://mitchforest.com)
 
 ## License
 
