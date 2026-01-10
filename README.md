@@ -3,7 +3,12 @@
 A **hand-drawn React component library** powered by Rough.js. Provides sketchy, organic aesthetics with full accessibility via Radix primitives.
 
 <p align="center">
+  <strong>🎨 <a href="https://mitchforest.com/projects/scribble-ui/gallery/button">Live Component Gallery</a></strong>
+</p>
+
+<p align="center">
   <a href="https://mitchforest.com/projects/scribble-ui">Documentation</a> •
+  <a href="https://mitchforest.com/projects/scribble-ui/gallery/button">Gallery</a> •
   <a href="https://github.com/MitchForest/scribble-ui">GitHub</a>
 </p>
 
