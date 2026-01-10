@@ -363,31 +363,6 @@
       ]
     },
     {
-      "name": "page-header",
-      "type": "registry:component",
-      "title": "Scribble Page Header",
-      "description": "Page header with title and optional back navigation.",
-      "files": [
-        { "path": "registry/page-header.tsx", "type": "registry:component" },
-        { "path": "registry/lib/index.ts", "type": "registry:lib" },
-        { "path": "registry/lib/utils.ts", "type": "registry:lib" },
-        { "path": "registry/lib/use-scribble-canvas.ts", "type": "registry:lib" }
-      ]
-    },
-    {
-      "name": "page-footer",
-      "type": "registry:component",
-      "title": "Scribble Page Footer",
-      "description": "Page footer with hand-drawn divider.",
-      "registryDependencies": ["@scribble-ui/decorative-divider"],
-      "files": [
-        { "path": "registry/page-footer.tsx", "type": "registry:component" },
-        { "path": "registry/lib/index.ts", "type": "registry:lib" },
-        { "path": "registry/lib/utils.ts", "type": "registry:lib" },
-        { "path": "registry/lib/use-scribble-canvas.ts", "type": "registry:lib" }
-      ]
-    },
-    {
       "name": "chart",
       "type": "registry:component",
       "title": "Scribble Chart",
@@ -578,18 +553,6 @@
       "dependencies": ["roughjs"],
       "files": [
         { "path": "registry/decorative/badge.tsx", "type": "registry:component" },
-        { "path": "registry/lib/index.ts", "type": "registry:lib" },
-        { "path": "registry/lib/utils.ts", "type": "registry:lib" },
-        { "path": "registry/lib/use-scribble-canvas.ts", "type": "registry:lib" }
-      ]
-    },
-    {
-      "name": "decorative-logo",
-      "type": "registry:component",
-      "title": "Scribble Logo",
-      "description": "Scribble UI logo component.",
-      "files": [
-        { "path": "registry/decorative/logo.tsx", "type": "registry:component" },
         { "path": "registry/lib/index.ts", "type": "registry:lib" },
         { "path": "registry/lib/utils.ts", "type": "registry:lib" },
         { "path": "registry/lib/use-scribble-canvas.ts", "type": "registry:lib" }
