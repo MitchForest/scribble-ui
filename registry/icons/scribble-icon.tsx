@@ -126,44 +126,155 @@ function linearizeQuadBezier(
 }
 
 /**
+ * Convert SVG arc endpoint parameterization to center parameterization.
+ * Based on the SVG spec: https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNotes
+ */
+function arcEndpointToCenter(
+  x1: number,
+  y1: number,
+  x2: number,
+  y2: number,
+  rx: number,
+  ry: number,
+  phi: number,
+  largeArc: boolean,
+  sweep: boolean
+): { cx: number; cy: number; theta1: number; dTheta: number; rx: number; ry: number } | null {
+  // Step 1: Compute (x1', y1') - rotate to align ellipse axes
+  const cosPhi = Math.cos(phi);
+  const sinPhi = Math.sin(phi);
+  const dx = (x1 - x2) / 2;
+  const dy = (y1 - y2) / 2;
+  const x1p = cosPhi * dx + sinPhi * dy;
+  const y1p = -sinPhi * dx + cosPhi * dy;
+
+  // Correct radii if needed
+  let rxSq = rx * rx;
+  let rySq = ry * ry;
+  const x1pSq = x1p * x1p;
+  const y1pSq = y1p * y1p;
+
+  // Check if radii are large enough
+  const lambda = x1pSq / rxSq + y1pSq / rySq;
+  if (lambda > 1) {
+    const sqrtLambda = Math.sqrt(lambda);
+    rx *= sqrtLambda;
+    ry *= sqrtLambda;
+    rxSq = rx * rx;
+    rySq = ry * ry;
+  }
+
+  // Step 2: Compute (cx', cy')
+  const sq = Math.max(0,
+    (rxSq * rySq - rxSq * y1pSq - rySq * x1pSq) /
+    (rxSq * y1pSq + rySq * x1pSq)
+  );
+  const coef = (largeArc !== sweep ? 1 : -1) * Math.sqrt(sq);
+  const cxp = coef * (rx * y1p / ry);
+  const cyp = coef * -(ry * x1p / rx);
+
+  // Step 3: Compute (cx, cy) from (cx', cy')
+  const cx = cosPhi * cxp - sinPhi * cyp + (x1 + x2) / 2;
+  const cy = sinPhi * cxp + cosPhi * cyp + (y1 + y2) / 2;
+
+  // Step 4: Compute theta1 and dTheta
+  const ux = (x1p - cxp) / rx;
+  const uy = (y1p - cyp) / ry;
+  const vx = (-x1p - cxp) / rx;
+  const vy = (-y1p - cyp) / ry;
+
+  // Angle between two vectors
+  const angleBetween = (ux: number, uy: number, vx: number, vy: number): number => {
+    const dot = ux * vx + uy * vy;
+    const lenU = Math.sqrt(ux * ux + uy * uy);
+    const lenV = Math.sqrt(vx * vx + vy * vy);
+    let cos = dot / (lenU * lenV);
+    cos = Math.max(-1, Math.min(1, cos)); // Clamp for floating point errors
+    const angle = Math.acos(cos);
+    return ux * vy - uy * vx < 0 ? -angle : angle;
+  };
+
+  const theta1 = angleBetween(1, 0, ux, uy);
+  let dTheta = angleBetween(ux, uy, vx, vy);
+
+  // Adjust dTheta based on sweep flag
+  if (!sweep && dTheta > 0) {
+    dTheta -= 2 * Math.PI;
+  } else if (sweep && dTheta < 0) {
+    dTheta += 2 * Math.PI;
+  }
+
+  return { cx, cy, theta1, dTheta, rx, ry };
+}
+
+/**
  * Approximate an elliptical arc with line segments.
+ * Properly handles largeArc and sweep flags per SVG spec.
  */
 function linearizeArc(
   p0: Point,
   rx: number,
   ry: number,
-  _xAxisRotation: number,
-  _largeArc: number,
-  _sweep: number,
+  xAxisRotation: number,
+  largeArc: number,
+  sweep: number,
   p1: Point,
-  segments: number = 8
+  segmentsPerQuadrant: number = 4
 ): Point[] {
-  // Simple linear interpolation for arcs (good enough for most icon arcs)
-  // A more accurate implementation would calculate the actual arc
-  // For simplicity, we'll approximate with a bezier-like curve
-  // This works well for the typical small arcs in icons
-  const midX = (p0.x + p1.x) / 2;
-  const midY = (p0.y + p1.y) / 2;
-  
-  // Calculate a control point offset perpendicular to the line
-  const dx = p1.x - p0.x;
-  const dy = p1.y - p0.y;
-  const length = Math.sqrt(dx * dx + dy * dy);
-  
-  if (length < 0.001) return [p1];
-  
-  // Estimate curve height based on arc radii
-  const curveHeight = Math.min(rx, ry) * 0.5;
-  const perpX = -dy / length * curveHeight;
-  const perpY = dx / length * curveHeight;
-  
-  const controlPoint = {
-    x: midX + perpX,
-    y: midY + perpY,
-  };
-  
-  // Use quad bezier approximation
-  return linearizeQuadBezier(p0, controlPoint, p1, segments);
+  // Handle degenerate cases
+  if (rx === 0 || ry === 0) {
+    return [p1];
+  }
+  if (p0.x === p1.x && p0.y === p1.y) {
+    return [];
+  }
+
+  // Make radii positive
+  rx = Math.abs(rx);
+  ry = Math.abs(ry);
+
+  const phi = (xAxisRotation * Math.PI) / 180;
+  const result = arcEndpointToCenter(
+    p0.x, p0.y,
+    p1.x, p1.y,
+    rx, ry,
+    phi,
+    largeArc === 1,
+    sweep === 1
+  );
+
+  if (!result) return [p1];
+
+  const { cx, cy, theta1, dTheta } = result;
+  const correctedRx = result.rx;
+  const correctedRy = result.ry;
+
+  // Calculate number of segments based on arc length
+  const arcAngle = Math.abs(dTheta);
+  const numSegments = Math.max(1, Math.ceil((arcAngle / (Math.PI / 2)) * segmentsPerQuadrant));
+
+  const points: Point[] = [];
+  const cosPhi = Math.cos(phi);
+  const sinPhi = Math.sin(phi);
+
+  for (let i = 1; i <= numSegments; i++) {
+    const t = i / numSegments;
+    const theta = theta1 + t * dTheta;
+    const cosTheta = Math.cos(theta);
+    const sinTheta = Math.sin(theta);
+
+    // Point on the ellipse (before rotation)
+    const x = correctedRx * cosTheta;
+    const y = correctedRy * sinTheta;
+
+    // Rotate and translate to final position
+    points.push({
+      x: cosPhi * x - sinPhi * y + cx,
+      y: sinPhi * x + cosPhi * y + cy,
+    });
+  }
+
+  return points;
 }
 
 /**

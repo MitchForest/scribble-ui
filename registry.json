@@ -633,6 +633,20 @@
         { "path": "registry/lib/utils.ts", "type": "registry:lib" },
         { "path": "registry/lib/use-scribble-canvas.ts", "type": "registry:lib" }
       ]
+    },
+    {
+      "name": "scribble-icon",
+      "type": "registry:component",
+      "title": "Scribble Icon",
+      "description": "Hand-drawn icons from Lucide SVG paths using Rough.js. 91 icons available.",
+      "dependencies": ["roughjs"],
+      "files": [
+        { "path": "registry/icons/scribble-icon.tsx", "type": "registry:component" },
+        { "path": "registry/icons/icon-paths.ts", "type": "registry:component" },
+        { "path": "registry/lib/index.ts", "type": "registry:lib" },
+        { "path": "registry/lib/utils.ts", "type": "registry:lib" },
+        { "path": "registry/lib/use-scribble-canvas.ts", "type": "registry:lib" }
+      ]
     }
   ]
 }
