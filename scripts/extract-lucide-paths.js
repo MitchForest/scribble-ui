@@ -645,6 +645,17 @@ const ICON_LIST = [
   "pointer",
   "move",
   "grip-vertical",
+  
+  // Additional icons for scribble apps/web (hugeicons migration)
+  "archive",
+  "key",
+  "credit-card",
+  "qr-code",
+  "bar-chart-2",
+  "rotate-ccw",
+  "loader-2",
+  "file-text",
+  "undo-2",
 ];
 
 function main() {
