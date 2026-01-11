@@ -26,5 +26,8 @@
   "scripts": {
     "build:registry": "node scripts/build-registry.js",
     "validate": "node scripts/validate-registry.js"
+  },
+  "devDependencies": {
+    "lucide-static": "^0.562.0"
   }
 }
