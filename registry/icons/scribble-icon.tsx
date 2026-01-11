@@ -1,5 +1,5 @@
 /**
- * RoughIcon - Hand-drawn icons from SVG paths using Rough.js
+ * ScribbleIcon - Hand-drawn icons from SVG paths using Rough.js
  *
  * Takes pre-extracted path commands and renders them with a sketchy,
  * hand-drawn aesthetic using Rough.js. This mirrors the iOS RoughSFSymbol
@@ -16,7 +16,7 @@ import rough from "roughjs";
 import { cn } from "../lib/utils";
 import { getIconPath, type IconName, type PathCommand } from "./icon-paths";
 
-export interface RoughIconProps {
+export interface ScribbleIconProps {
   /** Icon name from Lucide icon set */
   name: IconName;
   /** Size in pixels (default: 24) */
@@ -308,7 +308,7 @@ function linearizeCommands(commands: PathCommand[], scale: number): Subpath[] {
 // Component
 // ─────────────────────────────────────────────────────────────────────────────
 
-export function RoughIcon({
+export function ScribbleIcon({
   name,
   size = 24,
   color = "default",
@@ -317,7 +317,7 @@ export function RoughIcon({
   bowing = 1,
   seed = 42,
   className,
-}: RoughIconProps) {
+}: ScribbleIconProps) {
   const svgRef = useRef<SVGSVGElement>(null);
 
   const iconDef = useMemo(() => getIconPath(name), [name]);
@@ -355,7 +355,7 @@ export function RoughIcon({
   }, [iconDef, scale, computedColor, strokeWidth, roughness, bowing, seed]);
 
   if (!iconDef) {
-    console.warn(`RoughIcon: Unknown icon name "${name}"`);
+    console.warn(`ScribbleIcon: Unknown icon name "${name}"`);
     return null;
   }
 
@@ -371,6 +371,6 @@ export function RoughIcon({
   );
 }
 
-// Re-export types for convenience (renamed to avoid conflicts with ScribbleIcon's IconName)
-export type { IconName as RoughIconName } from "./icon-paths";
-export { iconNames as roughIconNames } from "./icon-paths";
+// Re-export types for convenience
+export type { IconName as ScribbleIconName } from "./icon-paths";
+export { iconNames as scribbleIconNames } from "./icon-paths";
