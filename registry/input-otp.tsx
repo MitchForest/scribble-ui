@@ -9,10 +9,11 @@
  * - Slight rotation per slot for organic feel
  */
 
-import { useEffect, useRef, useState } from "react"
 import { OTPInput  } from "input-otp"
-import rough from "roughjs"
 import type {SlotProps} from "input-otp";
+import { useEffect, useRef, useState } from "react"
+import rough from "roughjs"
+
 import { cn } from "./lib/utils"
 
 // =============================================================================

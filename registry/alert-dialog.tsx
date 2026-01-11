@@ -13,13 +13,14 @@
  * Wraps: @radix-ui/react-alert-dialog
  */
 
-import * as React from "react"
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog"
+import * as React from "react"
 import { useRef } from "react"
 import rough from "roughjs"
+
 import { ScribbleButton  } from "./button"
-import { ScribbleDivider } from "./decorative/divider"
 import type {ScribbleButtonProps} from "./button";
+import { ScribbleDivider } from "./decorative/divider"
 import { cn } from "./lib/utils"
 
 // =============================================================================

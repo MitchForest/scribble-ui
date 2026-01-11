@@ -18,8 +18,8 @@
  *   registry/icons/icon-paths.ts
  */
 
-import { readFileSync, writeFileSync, readdirSync, existsSync } from "fs";
-import { join, basename, dirname } from "path";
+import { existsSync, readFileSync, writeFileSync } from "fs";
+import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);

@@ -13,7 +13,9 @@
 
 import { useEffect, useMemo, useRef } from "react";
 import rough from "roughjs";
+
 import { cn } from "../lib/utils";
+
 import { getIconPath, type IconName, type PathCommand } from "./icon-paths";
 
 export interface ScribbleIconProps {

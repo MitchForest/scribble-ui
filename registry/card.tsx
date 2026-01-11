@@ -12,9 +12,10 @@
  */
 
 import { forwardRef, useEffect, useRef, useState } from "react"
-import rough from "roughjs"
-import { ScribbleTape } from "./decorative/tape"
 import type { ReactNode } from "react";
+import rough from "roughjs"
+
+import { ScribbleTape } from "./decorative/tape"
 import { cn } from "./lib/utils"
 
 export type TapePosition = "top-left" | "top-right" | "bottom-left" | "bottom-right"
@@ -216,7 +217,7 @@ export const ScribbleCard = forwardRef<HTMLDivElement, ScribbleCardProps>(
 // CARD SUBCOMPONENTS
 // =============================================================================
 
-export interface ScribbleCardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type ScribbleCardHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
 export function ScribbleCardHeader({ className, ...props }: ScribbleCardHeaderProps) {
   return (
@@ -227,7 +228,7 @@ export function ScribbleCardHeader({ className, ...props }: ScribbleCardHeaderPr
   )
 }
 
-export interface ScribbleCardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
+export type ScribbleCardTitleProps = React.HTMLAttributes<HTMLHeadingElement>
 
 export function ScribbleCardTitle({ className, ...props }: ScribbleCardTitleProps) {
   return (
@@ -242,7 +243,7 @@ export function ScribbleCardTitle({ className, ...props }: ScribbleCardTitleProp
   )
 }
 
-export interface ScribbleCardDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+export type ScribbleCardDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>
 
 export function ScribbleCardDescription({ className, ...props }: ScribbleCardDescriptionProps) {
   return (
@@ -254,13 +255,13 @@ export function ScribbleCardDescription({ className, ...props }: ScribbleCardDes
   )
 }
 
-export interface ScribbleCardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type ScribbleCardContentProps = React.HTMLAttributes<HTMLDivElement>
 
 export function ScribbleCardContent({ className, ...props }: ScribbleCardContentProps) {
   return <div className={cn("p-6 pt-0", className)} {...props} />
 }
 
-export interface ScribbleCardFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type ScribbleCardFooterProps = React.HTMLAttributes<HTMLDivElement>
 
 export function ScribbleCardFooter({ className, ...props }: ScribbleCardFooterProps) {
   return (

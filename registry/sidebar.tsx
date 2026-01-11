@@ -8,17 +8,20 @@
  * - User section with avatar
  */
 
-import {  createContext, useContext, useState } from "react"
 import { Link, useLocation } from "@tanstack/react-router"
-import { ScribbleLogo } from "./decorative/logo"
-import {  ScribbleIcon } from "./icons/icon"
+import {  createContext, useContext, useState } from "react"
+import type {ReactNode} from "react";
+
+import { ScribbleUnderline } from "./annotation/underline"
 import { ScribbleAvatar } from "./avatar"
 import { ScribbleDivider } from "./decorative/divider"
-import { ScribbleUnderline } from "./annotation/underline"
-import { ScribbleTooltip, ScribbleTooltipContent, ScribbleTooltipTrigger } from "./tooltip"
+import { ScribbleLogo } from "./decorative/logo"
+import {  ScribbleIcon } from "./icons/icon"
 import type {IconName} from "./icons/icon";
-import type {ReactNode} from "react";
 import { cn } from "./lib/utils"
+import { ScribbleTooltip, ScribbleTooltipContent, ScribbleTooltipTrigger } from "./tooltip"
+
+
 
 // =============================================================================
 // CONTEXT

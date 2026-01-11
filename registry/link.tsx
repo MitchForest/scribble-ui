@@ -10,10 +10,11 @@
  * - Separate underline color option
  */
 
-import {  forwardRef, useEffect, useId, useRef, useState } from "react"
 import { Slot } from "radix-ui"
-import rough from "roughjs"
+import {  forwardRef, useEffect, useId, useRef, useState } from "react"
 import type {ReactNode} from "react";
+import rough from "roughjs"
+
 import { cn } from "./lib/utils"
 
 export interface ScribbleLinkProps {

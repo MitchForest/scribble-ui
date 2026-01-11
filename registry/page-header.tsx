@@ -9,6 +9,7 @@
  */
 
 import { Link } from "@tanstack/react-router"
+
 import { ScribbleButton } from "./button"
 import { ScribbleLogo } from "./decorative/logo"
 import { cn } from "./lib/utils"

@@ -11,6 +11,7 @@
 
 import { useCallback, useEffect, useRef } from "react"
 import rough from "roughjs"
+
 import { cn } from "./lib/utils"
 
 // Available notionist avatars

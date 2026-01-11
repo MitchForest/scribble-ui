@@ -13,13 +13,14 @@
  */
 
 import * as React from "react"
+
 import { cn } from "./lib/utils"
 
 // =============================================================================
 // TABLE CONTAINER
 // =============================================================================
 
-export interface ScribbleTableProps extends React.ComponentProps<"table"> {}
+export type ScribbleTableProps = React.ComponentProps<"table">
 
 export function ScribbleTable({ className, ...props }: ScribbleTableProps) {
   return (
@@ -40,7 +41,7 @@ export function ScribbleTable({ className, ...props }: ScribbleTableProps) {
 // TABLE HEADER
 // =============================================================================
 
-export interface ScribbleTableHeaderProps extends React.ComponentProps<"thead"> {}
+export type ScribbleTableHeaderProps = React.ComponentProps<"thead">
 
 export function ScribbleTableHeader({ className, ...props }: ScribbleTableHeaderProps) {
   return (
@@ -60,7 +61,7 @@ export function ScribbleTableHeader({ className, ...props }: ScribbleTableHeader
 // TABLE BODY
 // =============================================================================
 
-export interface ScribbleTableBodyProps extends React.ComponentProps<"tbody"> {}
+export type ScribbleTableBodyProps = React.ComponentProps<"tbody">
 
 export function ScribbleTableBody({ className, ...props }: ScribbleTableBodyProps) {
   return (
@@ -78,7 +79,7 @@ export function ScribbleTableBody({ className, ...props }: ScribbleTableBodyProp
 // TABLE FOOTER
 // =============================================================================
 
-export interface ScribbleTableFooterProps extends React.ComponentProps<"tfoot"> {}
+export type ScribbleTableFooterProps = React.ComponentProps<"tfoot">
 
 export function ScribbleTableFooter({ className, ...props }: ScribbleTableFooterProps) {
   return (
@@ -98,7 +99,7 @@ export function ScribbleTableFooter({ className, ...props }: ScribbleTableFooter
 // TABLE ROW
 // =============================================================================
 
-export interface ScribbleTableRowProps extends React.ComponentProps<"tr"> {}
+export type ScribbleTableRowProps = React.ComponentProps<"tr">
 
 export function ScribbleTableRow({ className, ...props }: ScribbleTableRowProps) {
   return (
@@ -122,7 +123,7 @@ export function ScribbleTableRow({ className, ...props }: ScribbleTableRowProps)
 // TABLE HEAD (th)
 // =============================================================================
 
-export interface ScribbleTableHeadProps extends React.ComponentProps<"th"> {}
+export type ScribbleTableHeadProps = React.ComponentProps<"th">
 
 export function ScribbleTableHead({ className, ...props }: ScribbleTableHeadProps) {
   return (
@@ -145,7 +146,7 @@ export function ScribbleTableHead({ className, ...props }: ScribbleTableHeadProp
 // TABLE CELL (td)
 // =============================================================================
 
-export interface ScribbleTableCellProps extends React.ComponentProps<"td"> {}
+export type ScribbleTableCellProps = React.ComponentProps<"td">
 
 export function ScribbleTableCell({ className, ...props }: ScribbleTableCellProps) {
   return (
@@ -167,7 +168,7 @@ export function ScribbleTableCell({ className, ...props }: ScribbleTableCellProp
 // TABLE CAPTION
 // =============================================================================
 
-export interface ScribbleTableCaptionProps extends React.ComponentProps<"caption"> {}
+export type ScribbleTableCaptionProps = React.ComponentProps<"caption">
 
 export function ScribbleTableCaption({ className, ...props }: ScribbleTableCaptionProps) {
   return (

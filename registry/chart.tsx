@@ -16,6 +16,7 @@ import * as React from "react"
 import { useCallback, useId, useLayoutEffect, useMemo, useRef } from "react"
 import * as RechartsPrimitive from "recharts"
 import rough from "roughjs"
+
 import { cn } from "./lib/utils"
 
 // =============================================================================
@@ -217,7 +218,7 @@ function ScribbleBar({ seed = 42, ...props }: ScribbleBarProps) {
   )
 
    
-  const BarComponent = RechartsPrimitive.Bar as any
+  const BarComponent = RechartsPrimitive.Bar as unknown as React.ComponentType<RechartsPrimitive.BarProps>
   return <BarComponent shape={shape} {...props} />
 }
 
@@ -417,8 +418,16 @@ function ScribbleChartTooltipContent({
 
 const ScribbleChartLegend = RechartsPrimitive.Legend
 
+type ScribbleLegendPayloadItem = {
+  type?: string
+  dataKey?: string | number
+  value?: unknown
+  color?: string
+  payload?: unknown
+}
+
 interface ScribbleChartLegendContentProps extends React.ComponentProps<"div"> {
-  payload?: RechartsPrimitive.LegendProps["payload"]
+  payload?: Array<ScribbleLegendPayloadItem>
   verticalAlign?: "top" | "bottom"
   hideIcon?: boolean
   nameKey?: string
@@ -445,14 +454,14 @@ function ScribbleChartLegendContent({
       style={{ fontFamily: "var(--font-handwriting-body)" }}
     >
       {payload
-        .filter((item) => item.type !== "none")
-        .map((item) => {
+        .filter((item: ScribbleLegendPayloadItem) => item.type !== "none")
+        .map((item: ScribbleLegendPayloadItem) => {
           const key = `${nameKey || item.dataKey || "value"}`
           const itemConfig = getPayloadConfigFromPayload(config, item, key)
 
           return (
             <div
-              key={String(item.value)}
+              key={String(item.dataKey ?? item.value ?? key)}
               className="flex items-center gap-1.5 text-sm"
             >
               {itemConfig?.icon && !hideIcon ? (
@@ -464,7 +473,10 @@ function ScribbleChartLegendContent({
                 />
               )}
               <span className="text-gray-600 dark:text-gray-400">
-                {itemConfig?.label || item.value}
+                {itemConfig?.label ??
+                  (typeof item.value === "number" || typeof item.value === "string"
+                    ? item.value
+                    : String(item.value ?? ""))}
               </span>
             </div>
           )

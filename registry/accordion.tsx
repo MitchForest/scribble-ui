@@ -8,9 +8,10 @@
  * - Uses ScribblePlusMinus icon
  */
 
-import { createContext, forwardRef, useCallback, useContext, useEffect, useRef, useState } from "react"
 import { Accordion as AccordionPrimitive } from "radix-ui"
+import { createContext, forwardRef, useCallback, useContext, useEffect, useRef, useState } from "react"
 import rough from "roughjs"
+
 import { ScribblePlusMinus } from "./icons/plus-minus"
 import { cn } from "./lib/utils"
 

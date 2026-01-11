@@ -8,9 +8,9 @@
  * - Clean, minimal design
  */
 
-import { ScribbleLink } from "./link"
 import { ScribbleDivider } from "./decorative/divider"
 import { cn } from "./lib/utils"
+import { ScribbleLink } from "./link"
 
 export interface ScribblePageFooterProps {
   /** Show divider above footer */

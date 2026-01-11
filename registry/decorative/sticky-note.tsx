@@ -9,9 +9,10 @@
  * - Hover effect with shadow/rotation
  */
 
-import { useEffect, useRef, useState } from "react"
-import rough from "roughjs"
+import { useEffect, useMemo, useRef, useState } from "react"
 import type { ReactNode } from "react";
+import rough from "roughjs"
+
 import { cn } from "../lib/utils"
 
 export interface CreaseConfig {
@@ -77,10 +78,9 @@ export function ScribbleStickyNote({
   const svgRef = useRef<SVGSVGElement>(null)
   const [isHovered, setIsHovered] = useState(false)
 
-  // Get colors
-  const colors = color in colorMap 
-    ? colorMap[color] 
-    : { bg: color, darker: color }
+  const colors = useMemo(() => {
+    return color in colorMap ? colorMap[color] : { bg: color, darker: color }
+  }, [color])
 
   useEffect(() => {
     if (!svgRef.current) return

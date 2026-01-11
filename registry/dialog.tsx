@@ -11,12 +11,13 @@
  * Wraps: @radix-ui/react-dialog
  */
 
-import * as React from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
+import * as React from "react"
 import { useRef } from "react"
 import rough from "roughjs"
-import { ScribbleClose } from "./icons/close"
+
 import { ScribbleDivider } from "./decorative/divider"
+import { ScribbleClose } from "./icons/close"
 import { cn } from "./lib/utils"
 
 // =============================================================================

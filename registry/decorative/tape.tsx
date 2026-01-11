@@ -8,13 +8,20 @@
 
 import { useEffect, useRef } from "react"
 import rough from "roughjs"
+
 import { cn } from "../lib/utils"
 
-export type TapePosition = "top-left" | "top-right" | "bottom-left" | "bottom-right" | "top-center" | "bottom-center"
+export type ScribbleTapePosition =
+  | "top-left"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-right"
+  | "top-center"
+  | "bottom-center"
 
 export interface ScribbleTapeProps {
   /** Position on parent element */
-  position?: TapePosition
+  position?: ScribbleTapePosition
   /** Tape variant */
   variant?: "css" | "sketchy"
   /** Tape color */
@@ -65,7 +72,7 @@ const sizeMap = {
   lg: { width: 90, height: 32 },
 }
 
-const positionStyles: Record<TapePosition, React.CSSProperties> = {
+const positionStyles: Record<ScribbleTapePosition, React.CSSProperties> = {
   "top-left": { top: -10, left: -20 },
   "top-right": { top: -8, right: -22 },
   "bottom-left": { bottom: -10, left: -18 },
@@ -74,7 +81,7 @@ const positionStyles: Record<TapePosition, React.CSSProperties> = {
   "bottom-center": { bottom: -6, left: "50%", transform: "translateX(-50%)" },
 }
 
-const defaultRotations: Record<TapePosition, number> = {
+const defaultRotations: Record<ScribbleTapePosition, number> = {
   "top-left": -12,
   "top-right": 8,
   "bottom-left": 15,
@@ -152,7 +159,7 @@ function SketchyTape({
   seed,
   className,
 }: {
-  position: TapePosition
+  position: ScribbleTapePosition
   posStyle: React.CSSProperties
   colors: { bg: string; stroke: string }
   dimensions: { width: number; height: number }

@@ -4,8 +4,8 @@
  * Wraps react-rough-notation with better DX and theming.
  */
 
-import { RoughNotation } from "react-rough-notation"
 import type { ReactNode } from "react"
+import { RoughNotation } from "react-rough-notation"
 
 export interface ScribbleCircleProps {
   children: ReactNode

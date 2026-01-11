@@ -9,7 +9,7 @@
 
 import { cn } from "./lib/utils"
 
-export interface ScribbleSkeletonProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type ScribbleSkeletonProps = React.HTMLAttributes<HTMLDivElement>
 
 export function ScribbleSkeleton({ className, ...props }: ScribbleSkeletonProps) {
   return (

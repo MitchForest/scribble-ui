@@ -6,10 +6,11 @@
  * - "double": Uses Rough.js directly for thick double-line effect with hover wobble
  */
 
-import { RoughNotation } from "react-rough-notation"
 import {  useEffect, useRef, useState } from "react"
-import rough from "roughjs"
 import type {ReactNode} from "react";
+import { RoughNotation } from "react-rough-notation"
+import rough from "roughjs"
+
 import { cn } from "../lib/utils"
 
 export interface ScribbleUnderlineProps {

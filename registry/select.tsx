@@ -10,12 +10,13 @@
  * Wraps: @radix-ui/react-select
  */
 
-import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
+import * as React from "react"
 import { useEffect, useRef, useState } from "react"
 import rough from "roughjs"
-import { ScribbleIcon } from "./icons/icon"
+
 import { ScribbleUnderline } from "./annotation/underline"
+import { ScribbleIcon } from "./icons/icon"
 import { cn } from "./lib/utils"
 
 // =============================================================================

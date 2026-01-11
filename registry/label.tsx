@@ -5,8 +5,9 @@
  * Themed via CSS variables.
  */
 
-import { forwardRef } from "react"
 import { Label as LabelPrimitive } from "radix-ui"
+import { forwardRef } from "react"
+
 import { cn } from "./lib/utils"
 
 export interface ScribbleLabelProps extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> {

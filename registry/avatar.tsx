@@ -7,9 +7,10 @@
  * - Themed via CSS variables
  */
 
-import { forwardRef, useEffect, useRef } from "react"
 import { Avatar as AvatarPrimitive } from "radix-ui"
+import { forwardRef, useEffect, useRef } from "react"
 import rough from "roughjs"
+
 import { cn } from "./lib/utils"
 
 export type AvatarBorderStyle = "solid" | "dashed" | "double" | "zigzag" | "none"
