@@ -10,6 +10,7 @@ import rough from "roughjs"
 import { Toaster as Sonner, toast as sonnerToast } from "sonner"
 
 import { ScribbleClose } from "./icons/close"
+import { ScribbleIcon } from "./icons/scribble-icon"
 
 // =============================================================================
 // TYPES
@@ -62,25 +63,12 @@ function ScribbleToastContent({
     }
   }, [type])
 
-  // Get icon based on type
-  const getIcon = () => {
-    switch (type) {
-      case "success": return "✓"
-      case "error": return "✕"
-      case "warning": return "!"
-      case "info": return "i"
-      default: return null
-    }
-  }
-
-  const getIconBg = () => {
-    switch (type) {
-      case "success": return "#d1fae5"
-      case "error": return "#fee2e2"
-      case "warning": return "#fef3c7"
-      case "info": return "#dbeafe"
-      default: return "#f3f4f6"
-    }
+  // Map toast type to ScribbleIcon name, color, and background
+  const iconConfig: Record<string, { name: "check" | "x" | "alert-triangle" | "info"; color: string; bg: string }> = {
+    success: { name: "check", color: "success", bg: "#d1fae5" },
+    error: { name: "x", color: "error", bg: "#fee2e2" },
+    warning: { name: "alert-triangle", color: "warning", bg: "#fef3c7" },
+    info: { name: "info", color: "#3b82f6", bg: "#dbeafe" },
   }
 
   // Measure content and draw border
@@ -163,15 +151,19 @@ function ScribbleToastContent({
       {/* Content - above SVG */}
       <div className="relative z-10 flex items-start gap-3 p-4">
         {/* Icon */}
-        {getIcon() && (
+        {type !== "default" && iconConfig[type] && (
           <div
-            className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold"
-            style={{
-              backgroundColor: getIconBg(),
-              color: getBorderColor(),
-            }}
+            className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center"
+            style={{ backgroundColor: iconConfig[type].bg }}
           >
-            {getIcon()}
+            <ScribbleIcon
+              name={iconConfig[type].name}
+              size={16}
+              color={iconConfig[type].color}
+              roughness={1}
+              strokeWidth={2}
+              seed={seed + 2}
+            />
           </div>
         )}
 
