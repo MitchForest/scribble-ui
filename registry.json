@@ -263,7 +263,8 @@
       "name": "skeleton",
       "type": "registry:component",
       "title": "Scribble Skeleton",
-      "description": "Loading skeleton with sketchy shimmer effect.",
+      "description": "Loading skeleton with hand-drawn hachure fill pattern.",
+      "dependencies": ["roughjs"],
       "files": [
         { "path": "registry/skeleton.tsx", "type": "registry:component" },
         { "path": "registry/lib/index.ts", "type": "registry:lib" },
