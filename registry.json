@@ -173,6 +173,7 @@
       "title": "Scribble Toast",
       "description": "Toast notifications with hand-drawn styling. Uses Sonner.",
       "dependencies": ["sonner"],
+      "registryDependencies": ["@scribble-ui/scribble-icon"],
       "files": [
         { "path": "registry/toast.tsx", "type": "registry:component" },
         { "path": "registry/lib/index.ts", "type": "registry:lib" },
